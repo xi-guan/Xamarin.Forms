@@ -55,7 +55,7 @@
       </ReturnValue>
       <Docs>
         <summary>Gets or sets a value that indicates the ending focus state of the element for which a focus change is requested.</summary>
-        <value>>A value that indicates the ending focus state of the element for which a focus change is requested.</value>
+        <value>&gt;A value that indicates the ending focus state of the element for which a focus change is requested.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
