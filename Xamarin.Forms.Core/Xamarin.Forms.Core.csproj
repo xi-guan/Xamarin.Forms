@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AbsoluteLayoutFlags.cs" />
-    <Compile Include="Accessibility.cs" />
+    <Compile Include="AutomationProperties.cs" />
     <Compile Include="ActionSheetArguments.cs" />
     <Compile Include="AlertArguments.cs" />
     <Compile Include="AnimatableKey.cs" />
@@ -477,7 +477,5 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Xaml\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
