@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Contains both abbreviated and detailed UI information that is supplied to accessibility services.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -23,7 +23,7 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Creates a new <see cref="T:Xamarin.Forms.AutomationProperties" /> object with default values.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -118,7 +118,7 @@
         <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Backing store for the attached property that contains the detailed description of the UI element and its behavior.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -133,7 +133,7 @@
         <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Backing store for the attached property that contains a Boolean value that tells whether the element is available to the accessible app.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -148,7 +148,7 @@
         <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Backing store for the attached property that holds a reference to the element that labels the element that is being made accessible.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -163,7 +163,7 @@
         <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Backing store for the attached property that contains the brief description of the UI element</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
