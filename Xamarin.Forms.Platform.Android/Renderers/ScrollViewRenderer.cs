@@ -19,6 +19,7 @@ namespace Xamarin.Forms.Platform.Android
 		internal bool ShouldSkipOnTouch;
 		bool _isBidirectional;
 		ScrollView _view;
+		int _previousBottom;
 
 		public ScrollViewRenderer() : base(Forms.Context)
 		{
@@ -197,9 +198,14 @@ namespace Xamarin.Forms.Platform.Android
 
 		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
 		{
+			bool requestContainerLayout = bottom > _previousBottom;
+			_previousBottom = bottom;
+
 			base.OnLayout(changed, left, top, right, bottom);
 			if (_view.Content != null && _hScrollView != null)
 				_hScrollView.Layout(0, 0, right - left, Math.Max(bottom - top, (int)Context.ToPixels(_view.Content.Height)));
+			else if(_view.Content != null && requestContainerLayout)
+				_container?.RequestLayout();
 		}
 
 		protected override void OnScrollChanged(int l, int t, int oldl, int oldt)
