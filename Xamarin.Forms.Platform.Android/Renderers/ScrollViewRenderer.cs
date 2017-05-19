@@ -198,6 +198,9 @@ namespace Xamarin.Forms.Platform.Android
 
 		protected override void OnLayout(bool changed, int left, int top, int right, int bottom)
 		{
+			// If the scroll view has changed size because of soft keyboard dismissal
+			// (while WindowSoftInputModeAdjust is set to Resize), then we may need to request a 
+			// layout of the ScrollViewContainer
 			bool requestContainerLayout = bottom > _previousBottom;
 			_previousBottom = bottom;
 
