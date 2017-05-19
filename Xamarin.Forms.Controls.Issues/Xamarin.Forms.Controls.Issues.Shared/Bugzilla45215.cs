@@ -10,7 +10,7 @@ using NUnit.Framework;
 using Xamarin.Forms.Core.UITests;
 #endif
 
-namespace Xamarin.Forms.Controls.Issues.Xamarin.Forms.Controls.Issues
+namespace Xamarin.Forms.Controls.Issues
 {
 #if UITEST
 	[Category(UITestCategories.ManualReview)]
