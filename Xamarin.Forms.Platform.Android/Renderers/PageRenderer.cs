@@ -70,7 +70,6 @@ namespace Xamarin.Forms.Platform.Android
 			// - we're navigating back from a page where the soft keyboard was open when the user hit the Navigation Bar 'back' button
 			// - the Application's content height has changed because WindowSoftInputModeAdjust was set to Resize
 			// - the height has increased (in other words, the last layout was with the keyboard open, and now it's closed)
-
 			var newHeight = Element.Height;
 
 			if (_previousHeight > 0 && newHeight > _previousHeight)
@@ -78,7 +77,7 @@ namespace Xamarin.Forms.Platform.Android
 				var nav = Element.Navigation;
 
 				// This update check will fire for all the pages on the stack, but we only need to request a layout for the top one
-				if (nav != null && Element == nav.NavigationStack[nav.NavigationStack.Count - 1])
+				if (nav?.NavigationStack != null && nav.NavigationStack.Count > 0 && Element == nav.NavigationStack[nav.NavigationStack.Count - 1])
 				{
 					// The Forms layout stuff is already correct, we just need to force Android to catch up
 					RequestLayout();
