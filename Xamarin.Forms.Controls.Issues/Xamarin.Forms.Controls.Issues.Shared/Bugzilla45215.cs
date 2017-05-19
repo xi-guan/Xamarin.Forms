@@ -80,7 +80,7 @@ namespace Xamarin.Forms.Controls.Issues.Xamarin.Forms.Controls.Issues
 					"Tap on the control to bring up the software keyboard, then use the hardware 'Back' button to dismiss the keyboard. If the part of the page where the keyboard was is not green, the test has failed."
 			};
 
-			var layout = new Grid
+			var layout = new StackLayout
 			{
 				Children = { instructions, view() },
 				HorizontalOptions = LayoutOptions.Fill,
