@@ -65,6 +65,7 @@ namespace Xamarin.Forms.Controls.Issues
 			{
 				AutomationId = $"transparenttest{i}";
 
+				// TODO hartez 2017/05/22 15:45:12 Update this with real values	
 				ShouldBeTransparent = true;
 
 				Opacity = (i & (1 << 0)) == 0;
@@ -110,8 +111,8 @@ namespace Xamarin.Forms.Controls.Issues
 				HorizontalTextAlignment = TextAlignment.Center,
 				Text = $"Tap the button below."
 				       + (test.ShouldBeTransparent
-					       ? $"If the button's text changes to {Success} the test has passed."
-					       : "If the button's text remains unchanged, the test has passed.")
+					       ? $" If the button's text changes to {Success} the test has passed."
+					       : " If the button's text remains unchanged, the test has passed.")
 			};
 
 			grid.Children.Add(instructions);
@@ -141,6 +142,7 @@ namespace Xamarin.Forms.Controls.Issues
 			Grid.SetRow(button, 1);
 			
 			grid.Children.Add(layout);
+			Grid.SetRow(layout, 1);
 
 			return new ContentPage { Content = grid, Title = test.ToString()};
 		}
