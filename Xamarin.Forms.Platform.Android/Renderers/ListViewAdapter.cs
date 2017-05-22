@@ -109,7 +109,13 @@ namespace Xamarin.Forms.Platform.Android
 
 		public override int ViewTypeCount
 		{
-			get { return 20; }
+			get
+			{
+				// We have a documented limit of 20 templates on Android.
+				// ViewTypes are selected on a zero-based index, so this count must be at least 20 + 1.
+				// Plus, we arbitrarily increased the index of the DataTemplate index by 2 (see _dataTemplateIncrementer).
+				return 23;
+			}
 		}
 
 		public override bool AreAllItemsEnabled()
