@@ -100,6 +100,8 @@ namespace Xamarin.Forms.Platform.Android
 
 		bool AView.IOnTouchListener.OnTouch(AView v, MotionEvent e)
 		{
+			System.Diagnostics.Debug.WriteLine($">>>>> VisualElementRenderer OnTouch 103: {Element.AutomationId}");
+
 			if (!Element.IsEnabled)
 				return true;
 
@@ -475,6 +477,7 @@ namespace Xamarin.Forms.Platform.Android
 
 		void UpdateClickable(bool force = false)
 		{
+			System.Diagnostics.Debug.WriteLine($">>>>> VisualElementRenderer UpdateClickable 478: MESSAGE");
 			var view = Element as View;
 			if (view == null)
 				return;

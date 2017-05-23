@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace Xamarin.Forms.Platform.Android
 {
@@ -17,6 +18,7 @@ namespace Xamarin.Forms.Platform.Android
 		public static bool ShouldBeMadeClickable(this View view)
 		{
 			var shouldBeClickable = false;
+
 			for (var i = 0; i < view.GestureRecognizers.Count; i++)
 			{
 				IGestureRecognizer gesture = view.GestureRecognizers[i];
@@ -27,27 +29,37 @@ namespace Xamarin.Forms.Platform.Android
 				}
 			}
 
-			// Most layouts should be clickable, but not if they're in a ViewCell because that
-			// interferes with the ViewCell's handlers
-			if (!(view is Layout))
+			// do some evil
+			// This is required so that a layout only absorbs click events if it is not fully transparent
+			// However this is not desirable behavior in a ViewCell because it prevents the ViewCell from activating
+			if (view is Layout 
+				//&& view.BackgroundColor != Color.Transparent && view.BackgroundColor != Color.Default
+				)
 			{
-				return shouldBeClickable;
+				if (!view.IsInViewCell())
+				{
+					Debug.WriteLine($">>>>> VisualElementExtensions ShouldBeMadeClickable 39: view {view.AutomationId} should be clickable");
+
+					shouldBeClickable = true;
+				}
 			}
 
-			// Walk up the view tree to ensure we aren't in a ViewCell
+			return shouldBeClickable;
+		}
+
+		static bool IsInViewCell(this View view)
+		{
 			Element parent = view.RealParent;
 			while (parent != null)
 			{
 				if (parent is ViewCell)
 				{
-					// We're in a ViewCell, so clickable should be false
-					return false;
+					return true;
 				}
 				parent = parent.RealParent;
 			}
 
-			// If we're not, we can be clickable
-			return true;
+			return false;
 		}
 	}
 }

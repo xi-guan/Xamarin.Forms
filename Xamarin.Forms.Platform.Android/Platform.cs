@@ -1039,6 +1039,14 @@ namespace Xamarin.Forms.Platform.Android
 				_notReallyHandled = true;
 			}
 
+			public override bool OnTouchEvent(MotionEvent e)
+			{
+				System.Diagnostics.Debug.WriteLine($">>>>> DefaultRenderer OnTouchEvent 1044: Calling OnTouchEvent for {e} from {Element.AutomationId}");
+				var x = base.OnTouchEvent(e);
+				System.Diagnostics.Debug.WriteLine($">>>>> DefaultRenderer OnTouchEvent 1046: x is {x}");
+				return x;
+			}
+
 			public override bool DispatchTouchEvent(MotionEvent e)
 			{
 				#region
@@ -1074,8 +1082,11 @@ namespace Xamarin.Forms.Platform.Android
 					// don't consider the event truly "handled" yet. 
 					// Since a child control short-circuited the normal dispatchTouchEvent stuff, this layout never got the chance for
 					// IOnTouchListener.OnTouch and the OnTouchEvent override to try handling the touches; we'll do that now
+					var x = OnTouchEvent(e);
 
-					return OnTouchEvent(e);
+					System.Diagnostics.Debug.WriteLine($">>>>> DefaultRenderer DispatchTouchEvent 1081: x is {x}");
+
+					return x;
 				}
 
 				return result;
