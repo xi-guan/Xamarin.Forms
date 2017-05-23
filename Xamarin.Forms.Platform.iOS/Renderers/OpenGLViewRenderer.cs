@@ -76,8 +76,8 @@ namespace Xamarin.Forms.Platform.iOS
 					control.Display();
 				if (control == null || model == null || !model.HasRenderLoop)
 				{
-					_displayLink.Invalidate();
-					_displayLink.Dispose();
+					_displayLink?.Invalidate();
+					_displayLink?.Dispose();
 					_displayLink = null;
 				}
 			});
