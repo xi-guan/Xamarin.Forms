@@ -81,7 +81,7 @@ namespace Xamarin.Forms.Platform.iOS
 					_displayLink = null;
 				}
 			});
-			_displayLink.AddToRunLoop(NSRunLoop.Current, NSRunLoop.NSDefaultRunLoopMode);
+			_displayLink.AddToRunLoop(NSRunLoop.Current, NSRunLoop.NSRunLoopCommonModes);
 		}
 
 		class Delegate : GLKViewDelegate
